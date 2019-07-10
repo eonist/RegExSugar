@@ -1,6 +1,16 @@
 import Foundation
 
-class StringMatching {
+class StringMatching {}
+/**
+ * Parsing
+ */
+extension StringMatching{
+   enum Pattern {
+      static let digit: String = "^(\\-?\\d*?\\.?\\d*?)(px|$)"//\-?\d*?(\.?)((?1)\d+?(?=px)
+      static let path: String = "^.*?\\/(?=\\w*?\\.\\w*?$)"
+      static let fileName: String = "^.*?\\/(\\w*?\\.\\w*?$)"
+      static let colorHex: String = "(?<=^#)(?:[a-fA-F0-9]{3}){1,2}|(?<!^#)(?:[a-fA-F0-9]{3}){1,2}$"
+   }
    /**
     * Returns a file path, excluding the file name and file-suffix
     * - PARAM: input: usually formated like: /Users/James/Downloads/PanelView.png
@@ -49,30 +59,22 @@ class StringMatching {
     * - Fixme: //green, blue, orange etc// :Fixme: support for all of w3c color types
     * - Fixme: move this to a method named webColor?
     */
-//   static func color(_ hexColor: String) -> UInt{
-//      if hexColor.test(Pattern.colorHex) {/*asserts if the color is in the correct hex format*/
-//         //⚠️️⚠️️⚠️️⚠️️ Fixme: use native firstMatch instead of the bellow line, its way faster⚠️️⚠️️⚠️️⚠️️
-//         var hex: String = RegExp.match(hexColor, pattern: Pattern.colorHex)[0]
-//         if hex.count == 3 {
-//            hex = String(hex.first!, hex.first!, hex[hex.index(hex.startIndex, offsetBy: 1)], hex[hex.index(hex.startIndex, offsetBy: 1)], hex.last!, hex.last!])//upgraded to swift 3
-//         }/*Convert shorthand hex to hex*/
-//         return ("0x" + hex).uint
-//      } else {
-//         return ColorTypes.color(hexColor)
-//      }
-//   }
+   //   static func color(_ hexColor: String) -> UInt{
+   //      if hexColor.test(Pattern.colorHex) {/*asserts if the color is in the correct hex format*/
+   //         //⚠️️⚠️️⚠️️⚠️️ Fixme: use native firstMatch instead of the bellow line, its way faster⚠️️⚠️️⚠️️⚠️️
+   //         var hex: String = RegExp.match(hexColor, pattern: Pattern.colorHex)[0]
+   //         if hex.count == 3 {
+   //            hex = String(hex.first!, hex.first!, hex[hex.index(hex.startIndex, offsetBy: 1)], hex[hex.index(hex.startIndex, offsetBy: 1)], hex.last!, hex.last!])//upgraded to swift 3
+   //         }/*Convert shorthand hex to hex*/
+   //         return ("0x" + hex).uint
+   //      } else {
+   //         return ColorTypes.color(hexColor)
+   //      }
+   //   }
    /**
     * Returns NSColor for variouse literal color formats
     */
-//   static func nsColor(_ hexColor: String) -> NSColor{
-//      return StringParser.color(hexColor).color
-//   }
-}
-extension StringMatching {
-   enum Pattern {
-      static let digit: String = "^(\\-?\\d*?\\.?\\d*?)(px|$)"//\-?\d*?(\.?)((?1)\d+?(?=px)
-      static let path: String = "^.*?\\/(?=\\w*?\\.\\w*?$)"
-      static let fileName: String = "^.*?\\/(\\w*?\\.\\w*?$)"
-      static let colorHex: String = "(?<=^#)(?:[a-fA-F0-9]{3}){1,2}|(?<!^#)(?:[a-fA-F0-9]{3}){1,2}$"
-   }
+   //   static func nsColor(_ hexColor: String) -> NSColor{
+   //      return StringParser.color(hexColor).color
+   //   }
 }

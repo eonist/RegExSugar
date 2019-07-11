@@ -4,7 +4,7 @@ class StringMatching {}
 /**
  * Parsing
  */
-extension StringMatching{
+extension StringMatching {
    enum Pattern {
       static let digit: String = "^(\\-?\\d*?\\.?\\d*?)(px|$)"//\-?\d*?(\.?)((?1)\d+?(?=px)
       static let path: String = "^.*?\\/(?=\\w*?\\.\\w*?$)"
@@ -22,19 +22,19 @@ extension StringMatching{
     * var path: String = String(match[0]).substring(0, String(match[0]).lastIndexOf("/"));
     * - NOTE: ⚠️️ There is also a native way if you look through NSURL
     */
-   static func path(_ url: String) -> String {
+   public static func path(_ url: String) -> String {
       return url.match(Pattern.path)[0]
    }
    /**
     * - NOTE: There is also a native way if you look through NSURL
     */
-   static func fileName(_ url: String) -> String {
+   public static func fileName(_ url: String) -> String {
       return url.match(Pattern.fileName)[1]
    }
    /**
     * Returns the percentage as a CGFloat
     */
-   static func percentage(_ value: String) -> CGFloat? {
+   public static func percentage(_ value: String) -> CGFloat? {
       let match = value.match(".*?(?=%)")
       guard let val: String = match.isEmpty ? nil : match[0], let value = Double(val) else { return nil }
       return CGFloat(value)
@@ -46,7 +46,7 @@ extension StringMatching{
     * - NOTE: if the digit has a trailing % character it is returned as a String
     * - Fixme: ⚠️️ This could probably be simpler if you just added a none capturing group and used regexp.match
     */
-   static func digit(_ string: String) -> CGFloat? {
+   public static func digit(_ string: String) -> CGFloat? {
       let matches = RegExp.matches(string, pattern: Pattern.digit)
       let match: NSTextCheckingResult = matches[0]
       let value: String = RegExp.value(string, result: match, key: 1)

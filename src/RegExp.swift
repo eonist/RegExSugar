@@ -15,7 +15,7 @@ public class RegExp {
     * - EXAMPLE: RegExp.test("hello world","o.*o")//true
     * - CAUTION: upgraded in swift 3, was-> str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
     */
-   static func test(_ str: String, pattern: String) -> Bool {
+   public static func test(_ str: String, pattern: String) -> Bool {
       return str.range(of: pattern, options: .regularExpression) != nil//or do something like this: return RegExpParser.match(pattern,options).count > 0
    }
    /**
@@ -28,7 +28,7 @@ public class RegExp {
     * - Fixme: Then if it is outof bound return eigther an empty array or nil
     * - Fixme: Then only do substringwithrange if NSRange is not NSOutOfBoundRange type
     */
-   static func match(_ text: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [String] {
+   public static func match(_ text: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [String] {
       return matches(text, pattern: pattern).map { (text as NSString).substring(with: $0.range) }
    }
    /**
@@ -49,7 +49,7 @@ public class RegExp {
     *     let value = $0.value(str, 2)/*capturing group 2*/
     * } // Outputs: name: green, value: 00FF00...and so on
     */
-   static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [NSTextCheckingResult] {
+   public static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [NSTextCheckingResult] {
       do {
          let regex = try NSRegularExpression(pattern: pattern, options: options)
          let nsString = text as NSString
@@ -75,7 +75,7 @@ public class RegExp {
     * RegExp.replace("<strong>Hell</strong>o, <strong>Hell</strong>o, <strong>Hell</strong>o", "<\\/?strong>",  "*")//Output:  "*Hell*o, *Hell*o, *Hell*o"
     * RegExp.replace("yeah yeah","(\\b\\w+\\b)", "bla")//bla bla
     */
-   static func replace(_ str: String, _ pattern: String, replacement: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> String {
+   public static func replace(_ str: String, _ pattern: String, replacement: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> String {
       do {
          let stringlength = str.count
          let regex = try NSRegularExpression(pattern: pattern, options: options)
@@ -86,14 +86,14 @@ public class RegExp {
          return ""
       }
    }
-   typealias Replacer = (_ match: String) -> String?//if nil is returned then replacer closure didnt want to replace the match
+   public typealias Replacer = (_ match: String) -> String?//if nil is returned then replacer closure didnt want to replace the match
    /**
     * New, replaces with a closure
     * - Fixme: ⚠️️ Try to performance test if accumulative substring is faster (you += before the match + the match and so on)
     * ## EXAMPLES:
     * Swift.print("bad wolf, bad dog, Bad sheep".replace("\\b([bB]ad)\\b"){return $0.isLowerCased ? $0 : $0.lowercased()})
     */
-   static func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: Replacer) -> String {
+   public static func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: Replacer) -> String {
       //        Swift.print("RegExp.replace")
       var str = str
       RegExp.matches(str, pattern: pattern).reversed().forEach {
@@ -116,20 +116,20 @@ public class RegExp {
     * RegExp.value(fullString,match,StatusParts.second.rawValue)
     * - Fixme: ⚠️️ you should check if there is content in the range first, if ther eis not return nilor error
     */
-   static func value(_ str: String, result: NSTextCheckingResult, key: Int) -> String {
+   public static func value(_ str: String, result: NSTextCheckingResult, key: Int) -> String {
       return (str as NSString).substring(with: result.range(at: key))
    }
    /**
     * Finds first index of pattern in string
     */
-   static func search(_ input: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> Int? {
+   public static func search(_ input: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> Int? {
       guard let range = input.range(of: pattern, options: .regularExpression) else { return nil }
       return input.distance(from: input.startIndex, to: range.lowerBound)
    }
    /**
     * Coming soon
     */
-   static func exec() {
+   public static func exec() {
       //Fixme: ⚠️️ research enumerateMatches, it takes a method and enumerate all matches.
       //NSRegularExpression.replacementString has an offset, which I think you can use
    }
@@ -174,7 +174,7 @@ public class RegExp {
    //    }
 }
 extension NSTextCheckingResult {
-   func value(_ str: String, key: Int) -> String {//Convenience
+   public func value(_ str: String, key: Int) -> String {//Convenience
       return RegExp.value(str, result: self, key: key)
    }
 }

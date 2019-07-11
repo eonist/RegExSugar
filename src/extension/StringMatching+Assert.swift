@@ -11,22 +11,22 @@ extension StringMatching {
    /**
     * Asserts if a string is a digit (10, 20px, -20px, 0.2px, -.2, 0.2)
     */
-   static func isDigit(_ string: String) -> Bool {
+   public static func isDigit(_ string: String) -> Bool {
       return string.test(AssertPattern.digit)
    }
    /**
     * 2ems,20% etc
     */
-   static func isMetric(_ string: String) -> Bool{
+   public static func isMetric(_ string: String) -> Bool {
       return string.test(AssertPattern.metric)
    }
-   static func isColor(_ string: String) -> Bool {
+   public static func isColor(_ string: String) -> Bool {
       return string.test(AssertPattern.color)
    }
    /**
     * Asserts if PARAM: value is a percentage
     */
-   static func isPercentage(_ value: String) -> Bool{
+   public static func isPercentage(_ value: String) -> Bool {
       return value.test(".*?(?=%)")
    }
 }

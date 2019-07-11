@@ -19,6 +19,16 @@
 		F1D81C7522D6329E008F842A /* StringMatching+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C7422D6329E008F842A /* StringMatching+Parsing.swift */; };
 		F1D81C7722D6387C008F842A /* StringMatching+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C7622D6387C008F842A /* StringMatching+Assert.swift */; };
 		F1D81D1D22D74A9A008F842A /* RegExSugarMacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D81D1B22D74A9A008F842A /* RegExSugarMacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1D81D2422D74CC6008F842A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C7122D613DF008F842A /* String+Extension.swift */; };
+		F1D81D2522D74CC6008F842A /* StringMatching+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C7422D6329E008F842A /* StringMatching+Parsing.swift */; };
+		F1D81D2622D74CC6008F842A /* StringMatching+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C7622D6387C008F842A /* StringMatching+Assert.swift */; };
+		F1D81D2722D74CC6008F842A /* RegExpAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6222D5FBF4008F842A /* RegExpAsserter.swift */; };
+		F1D81D2822D74CC6008F842A /* RegExpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6322D5FBF4008F842A /* RegExpParser.swift */; };
+		F1D81D2922D74CC6008F842A /* RegExpAdvanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6422D5FBF4008F842A /* RegExpAdvanceParser.swift */; };
+		F1D81D2A22D74CC6008F842A /* RegExpPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6522D5FBF4008F842A /* RegExpPattern.swift */; };
+		F1D81D2B22D74CC6008F842A /* RegExpMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6622D5FBF4008F842A /* RegExpMatch.swift */; };
+		F1D81D2C22D74CC6008F842A /* RegExpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6722D5FBF4008F842A /* RegExpModifier.swift */; };
+		F1D81D2D22D74CC6008F842A /* RegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6822D5FBF4008F842A /* RegExp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -299,6 +309,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D81D2522D74CC6008F842A /* StringMatching+Parsing.swift in Sources */,
+				F1D81D2422D74CC6008F842A /* String+Extension.swift in Sources */,
+				F1D81D2A22D74CC6008F842A /* RegExpPattern.swift in Sources */,
+				F1D81D2922D74CC6008F842A /* RegExpAdvanceParser.swift in Sources */,
+				F1D81D2B22D74CC6008F842A /* RegExpMatch.swift in Sources */,
+				F1D81D2622D74CC6008F842A /* StringMatching+Assert.swift in Sources */,
+				F1D81D2822D74CC6008F842A /* RegExpParser.swift in Sources */,
+				F1D81D2C22D74CC6008F842A /* RegExpModifier.swift in Sources */,
+				F1D81D2D22D74CC6008F842A /* RegExp.swift in Sources */,
+				F1D81D2722D74CC6008F842A /* RegExpAsserter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

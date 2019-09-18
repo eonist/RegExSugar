@@ -68,6 +68,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D10A31A2332351000513EF4 /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C6722D5FBF4008F842A /* RegExpModifier.swift */,
+				F1D81C6622D5FBF4008F842A /* RegExpMatch.swift */,
+				F1D81C6522D5FBF4008F842A /* RegExpPattern.swift */,
+				F1D81C6222D5FBF4008F842A /* RegExpAsserter.swift */,
+				F1D81C6322D5FBF4008F842A /* RegExpParser.swift */,
+				F1D81C6422D5FBF4008F842A /* RegExpAdvanceParser.swift */,
+			);
+			path = extra;
+			sourceTree = "<group>";
+		};
 		F1D81C4B22D5FAEC008F842A = {
 			isa = PBXGroup;
 			children = (
@@ -100,23 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				F1D81C7022D613CA008F842A /* extension */,
-				F1D81C6122D5FBF4008F842A /* utils */,
+				9D10A31A2332351000513EF4 /* extra */,
 				F1D81C6822D5FBF4008F842A /* RegExp.swift */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		F1D81C6122D5FBF4008F842A /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				F1D81C6222D5FBF4008F842A /* RegExpAsserter.swift */,
-				F1D81C6322D5FBF4008F842A /* RegExpParser.swift */,
-				F1D81C6422D5FBF4008F842A /* RegExpAdvanceParser.swift */,
-				F1D81C6522D5FBF4008F842A /* RegExpPattern.swift */,
-				F1D81C6622D5FBF4008F842A /* RegExpMatch.swift */,
-				F1D81C6722D5FBF4008F842A /* RegExpModifier.swift */,
-			);
-			path = utils;
 			sourceTree = "<group>";
 		};
 		F1D81C7022D613CA008F842A /* extension */ = {

@@ -2,9 +2,9 @@ import Foundation
 
 enum RegExpPattern {
     /**
-     * - NOTE: Used in the svg path parameter parser for instance
-     * - NOTE: swift doesn't do conditionals in regex like this: \-?\d*?(\.?)((?1)\d+?)  so the bellow code was made to do the same thing
-     * - NOTE: you may need to add more
+     * - Note: Used in the svg path parameter parser for instance
+     * - Note: swift doesn't do conditionals in regex like this: \-?\d*?(\.?)((?1)\d+?)  so the bellow code was made to do the same thing
+     * - Note: you may need to add more
      */
     static let digitAssertPattern: String = {
         //let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/

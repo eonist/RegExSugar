@@ -10,10 +10,11 @@ import Foundation
 public class RegExp {
    /**
     * Asserts if a match exists
-    * - NOTE: NSRegularExpression. https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
+    * - Note: NSRegularExpression. https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
     * - NOTE: for simple implimentations:  str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
-    * - EXAMPLE: RegExp.test("hello world","o.*o")//true
-    * - CAUTION: upgraded in swift 3, was-> str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
+    * - ## Examples:
+    * RegExp.test("hello world","o.*o")//true
+    * - Caution: upgraded in swift 3, was-> str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
     */
    public static func test(_ str: String, pattern: String) -> Bool {
       return str.range(of: pattern, options: .regularExpression) != nil//or do something like this: return RegExpParser.match(pattern,options).count > 0
@@ -21,7 +22,8 @@ public class RegExp {
    /**
     * - NOTE: NSRegularExpression. (has overview of the regexp syntax supported) https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
     * - NOTE: NSRegularExpressionOptions: DotMatchesLineSeparators,CaseInsensitive,AnchorsMatchLines
-    * EXAMPLES: RegExp.match("My name is Taylor Swift","My name is (.*)")//Swift
+    * ## Examples:
+    * RegExp.match("My name is Taylor Swift","My name is (.*)")//Swift
     * RegExp.match("hello world","(\\b\\w+\\b)")//hello, world
     * RegExpParser.match("abc 123 abc 123 abc 123 xyz", "[a-zA-Z]{3}")//["abc", "abc", "abc", "xyz"]
     * - Fixme: ⚠️️ Probably return optional array?
@@ -40,7 +42,7 @@ public class RegExp {
     * - NOTE: its also possible to find number of matches this way: regex.numberOfMatchesInString(text options:[] NSMakeRange(0, nsString.length))
     * - Fixme: ⚠️️ Figure out how to do numbered capturing groups ($n - n is a digit. Back referencing to a capture group. n must be >= 0 and not greater than ) maybe with \$2 \$3 etc?
     * - Fixme: Research how to deal with swift unicode chars, emojis etc: see this: http://stackoverflow.com/questions/25882503/how-can-i-use-nsregularexpression-on-swift-strings-with-variable-width-unicode-c
-    * ## EXAMPLES:
+    * ## Examples:
     * let str = "blue:0000FF green:00FF00 red:FF0000"
     * RegExp.matches(str, "(\\w+?)\\:([A-Z0-9]+?)(?: |$)").forEach {
     *     Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
@@ -71,7 +73,7 @@ public class RegExp {
     * - PARAM: range: The range of the string to search.
     * - PARAM: replacement: The substitution template used when replacing matching instances.
     * - Fixme: ⚠️️ The PARAM: text should be inout, maybe?
-    * ## EXAMPLES:
+    * ## Examples:
     * RegExp.replace("<strong>Hell</strong>o, <strong>Hell</strong>o, <strong>Hell</strong>o", "<\\/?strong>",  "*")//Output:  "*Hell*o, *Hell*o, *Hell*o"
     * RegExp.replace("yeah yeah","(\\b\\w+\\b)", "bla")//bla bla
     */
@@ -90,7 +92,7 @@ public class RegExp {
    /**
     * New, replaces with a closure
     * - Fixme: ⚠️️ Try to performance test if accumulative substring is faster (you += before the match + the match and so on)
-    * ## EXAMPLES:
+    * ## Examples:
     * Swift.print("bad wolf, bad dog, Bad sheep".replace("\\b([bB]ad)\\b"){return $0.isLowerCased ? $0 : $0.lowercased()})
     */
    public static func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: Replacer) -> String {

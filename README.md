@@ -1,7 +1,4 @@
 # RegExSugar
-Sugar for regex
-
-<img width="100" alt="img" src="https://rawgit.com/stylekit/img/master/RegExpLib.svg">
 
 - Makes parsing and modifying with RegEx easier  
 

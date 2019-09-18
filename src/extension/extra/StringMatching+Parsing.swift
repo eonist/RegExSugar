@@ -15,7 +15,7 @@ extension StringMatching {
     * Returns a file path, excluding the file name and file-suffix
     * - PARAM: input: usually formated like: /Users/James/Downloads/PanelView.png
     * - RETURN: a string formatted like: /Users/James/Downloads/
-    * ## EXAMPLES:
+    * ## Examples:
     * path(Users/User/Desktop/main.css);//Users/User/Desktop/
     * - NOTE: you can also do this another way:
     * var match: Array = input.split(".");
@@ -26,7 +26,7 @@ extension StringMatching {
       return url.match(Pattern.path)[0]
    }
    /**
-    * - NOTE: There is also a native way if you look through NSURL
+    * - Note: There is also a native way if you look through NSURL
     */
    public static func fileName(_ url: String) -> String {
       return url.match(Pattern.fileName)[1]

@@ -81,6 +81,15 @@
 			path = extra;
 			sourceTree = "<group>";
 		};
+		9D10A31B2332364F00513EF4 /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				F1D81C7422D6329E008F842A /* StringMatching+Parsing.swift */,
+				F1D81C7622D6387C008F842A /* StringMatching+Assert.swift */,
+			);
+			path = extra;
+			sourceTree = "<group>";
+		};
 		F1D81C4B22D5FAEC008F842A = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D81C7122D613DF008F842A /* String+Extension.swift */,
-				F1D81C7422D6329E008F842A /* StringMatching+Parsing.swift */,
-				F1D81C7622D6387C008F842A /* StringMatching+Assert.swift */,
+				9D10A31B2332364F00513EF4 /* extra */,
 			);
 			path = extension;
 			sourceTree = "<group>";

@@ -9,8 +9,8 @@ import Foundation
  */
 public class RegExp {
    /**
-    * - NOTE: NSRegularExpression. (has overview of the regexp syntax supported) https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
-    * - NOTE: NSRegularExpressionOptions: DotMatchesLineSeparators,CaseInsensitive,AnchorsMatchLines
+    * - Note: NSRegularExpression. (has overview of the regexp syntax supported) https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
+    * - Note: NSRegularExpressionOptions: DotMatchesLineSeparators,CaseInsensitive,AnchorsMatchLines
     * ## Examples:
     * RegExp.match("My name is Taylor Swift","My name is (.*)")//Swift
     * RegExp.match("hello world","(\\b\\w+\\b)")//hello, world
@@ -23,12 +23,12 @@ public class RegExp {
       return matches(text, pattern: pattern).map { (text as NSString).substring(with: $0.range) }
    }
    /**
-    * Similar to Exec in other languages
-    * - NOTE: NSRegExp uses the ICU regexp syntax: http://userguide.icu-project.org/strings/regexp
-    * - NOTE: Use this method when doing named capturing group or location of matches
-    * - NOTE: use this call to get the capturing group: (str as NSString).substringWithRange(match.rangeAtIndex(1))  capturing groups from index (1 - n)
-    * - NOTE: use an "enum" if you need named capturing groups. like: enum FolderTaskParts:Int{ case folder = 1, content }
-    * - NOTE: its also possible to find number of matches this way: regex.numberOfMatchesInString(text options:[] NSMakeRange(0, nsString.length))
+    * - Note: Similar to Exec in other languages
+    * - Note: NSRegExp uses the ICU regexp syntax: http://userguide.icu-project.org/strings/regexp
+    * - Note: Use this method when doing named capturing group or location of matches
+    * - Note: use this call to get the capturing group: (str as NSString).substringWithRange(match.rangeAtIndex(1))  capturing groups from index (1 - n)
+    * - Note: use an "enum" if you need named capturing groups. like: enum FolderTaskParts:Int{ case folder = 1, content }
+    * - Note: its also possible to find number of matches this way: regex.numberOfMatchesInString(text options:[] NSMakeRange(0, nsString.length))
     * - Fixme: ⚠️️ Figure out how to do numbered capturing groups ($n - n is a digit. Back referencing to a capture group. n must be >= 0 and not greater than ) maybe with \$2 \$3 etc?
     * - Fixme: Research how to deal with swift unicode chars, emojis etc: see this: http://stackoverflow.com/questions/25882503/how-can-i-use-nsregularexpression-on-swift-strings-with-variable-width-unicode-c
     * ## Examples:

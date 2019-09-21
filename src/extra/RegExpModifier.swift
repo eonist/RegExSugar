@@ -3,19 +3,19 @@ import Foundation
 public class RegExpModifier {
     /**
      * Returns a Comment free css string
-     * - PARAM: input: a Css String such as "P{color:#00FF00;}"
+     * - Parameter: input: a Css String such as "P{color:#00FF00;}"
      */
     static func removeComments(_ input: String) -> String {
         return input.replace(Pattern.removeComments, "")
     }
     /**
-     * Retuns @param input with punctuation replaced by @param replacement
+     * Returns input with punctuation replaced by replacement
      */
     static func replacePunctuation(_ input: String, replacement: String) -> String {
         return input.replace("[.]", replacement)
     }
     /**
-     * Returns the PARAM: input without whitespace on the left and right side
+     * Returns the input without whitespace on the left and right side
      * - Note: writing this function is not easy, check proto website for inspiration
      * - Note: StringModifier.trimWhiteSpace can also be used. could be faster
      * - Fixme: possible rewrite inspiration: test6.match(/(?<=<[tT][iI][tT][lL][eE]>).*(?=<\/[tT][iI][tT][lL][eE]>)/g))
@@ -27,7 +27,7 @@ public class RegExpModifier {
       return RegExp.match(input, pattern: Pattern.removeWrappingWhitespace)[0]
     }
     /**
-     * Returns @param input without the last whitespacecharcter
+     * Returns param input without the last whitespacecharcter
      * - Note: If the input has no whitespace at the end the input is returned as is
      */
     static func removeEndingWhiteSpace(_ input: String) -> String {
@@ -35,7 +35,7 @@ public class RegExpModifier {
     }
     /**
      * Returns a @param input without dubble or more whitespace
-     * - Param replacement: the single white space, can be zero whitespace aswell
+     * - Parameter replacement: the single white space, can be zero whitespace aswell
      * ## Examples:
      * singularWhitespace("       A  C  B");//Output: " A C B"
      */
@@ -54,7 +54,7 @@ public class RegExpModifier {
     }
     /**
      * Returns an html email link from @param input
-     * - param input: a string containing atleast 1 email
+     * - Parameter input: a string containing atleast 1 email
      * ## Examples:
      * emailLink("Hello, john@forta.com is my email address.");//Hello, <A HREF=mailto:john@forta.com>ben@forta.com</A> is my email address.
      */
@@ -89,7 +89,7 @@ public class RegExpModifier {
     }
     /**
      * Returns a telephone number conformed to (313) 555-1234 from @param input
-     * - param input: a string containing atleast 1 telephone number formated like xxx-xxx-xxxx
+     * - Parameter input: a string containing atleast 1 telephone number formated like xxx-xxx-xxxx
      * ## Examples:
      * conformUsTeleNr(313-555-1234 248-555-9999 810-555-9000);//(313) 555-1234, (248) 555-9999, (810) 555-9000
      */
@@ -98,7 +98,7 @@ public class RegExpModifier {
     }
     /**
      * Returns words with single quotation marks from the @param input
-     * - param input: words with dubble quotationmarks
+     * - Parameter input: words with dubble quotationmarks
      * replaces all quotion (quotation mark followed by word followed by quotation mark) into curly quotes
      *
      */

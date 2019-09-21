@@ -41,7 +41,7 @@ extension RegExp {
 /**
  Replaces all occurances of the pattern using supplied replacer function.
  
- - parameters:
+ - Parametereters:
  - source: String to be matched to the pattern
  - replacer: Function that takes a match and returns a replacement. If replacement is nil, the original match gets inserted instead
  - returns: A string, where all the occurances of the pattern were replaced

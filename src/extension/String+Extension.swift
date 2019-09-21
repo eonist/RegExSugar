@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * - Fixme: ⚠️️ Add examples to these methods
+ */
 extension String {
    public func match(_ pattern: String!, _ options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [String] {
       return RegExp.match(self, pattern: pattern, options: options)
@@ -11,7 +13,7 @@ extension String {
       return RegExp.test(self, pattern: pattern)
    }
    public func replace(_ pattern: String, _ replacement: String) -> String {
-      return RegExp.replace(self, pattern, replacement: replacement)
+      return RegExp.replace(self, pattern: pattern, replacement: replacement)
    }
    public func replace(_ pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: RegExp.Replacer) -> String {
       return RegExp.replace(self, pattern: pattern, options: options, replacer: replacer)

@@ -13,6 +13,12 @@
 		F1CD0BCD2336235800269851 /* RegExp+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCC2336235800269851 /* RegExp+Replace.swift */; };
 		F1CD0BCF2336237100269851 /* RegExp+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCE2336237100269851 /* RegExp+Test.swift */; };
 		F1CD0BD12336238500269851 /* RegExp+Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BD02336238500269851 /* RegExp+Match.swift */; };
+		F1CD0BD22336289D00269851 /* RegExp+Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BD02336238500269851 /* RegExp+Match.swift */; };
+		F1CD0BD32336289D00269851 /* RegExp+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCE2336237100269851 /* RegExp+Test.swift */; };
+		F1CD0BD42336289D00269851 /* RegExp+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCC2336235800269851 /* RegExp+Replace.swift */; };
+		F1CD0BD52336289D00269851 /* RegExp+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BC42336222D00269851 /* RegExp+Type.swift */; };
+		F1CD0BD62336289D00269851 /* RegExp+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BC62336223900269851 /* RegExp+Helper.swift */; };
+		F1CD0BD72336289D00269851 /* RegExp+Exec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCA233622FE00269851 /* RegExp+Exec.swift */; };
 		F1D81C5A22D5FAEC008F842A /* RegExSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D81C5822D5FAEC008F842A /* RegExSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1D81C6922D5FBF4008F842A /* RegExpAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6222D5FBF4008F842A /* RegExpAsserter.swift */; };
 		F1D81C6A22D5FBF4008F842A /* RegExpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6322D5FBF4008F842A /* RegExpParser.swift */; };
@@ -336,10 +342,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CD0BD52336289D00269851 /* RegExp+Type.swift in Sources */,
 				F1D81D2522D74CC6008F842A /* StringMatching+Parsing.swift in Sources */,
 				F1D81D2422D74CC6008F842A /* String+Extension.swift in Sources */,
+				F1CD0BD32336289D00269851 /* RegExp+Test.swift in Sources */,
 				F1D81D2A22D74CC6008F842A /* RegExpPattern.swift in Sources */,
 				F1D81D2922D74CC6008F842A /* RegExpAdvanceParser.swift in Sources */,
+				F1CD0BD42336289D00269851 /* RegExp+Replace.swift in Sources */,
+				F1CD0BD72336289D00269851 /* RegExp+Exec.swift in Sources */,
+				F1CD0BD22336289D00269851 /* RegExp+Match.swift in Sources */,
+				F1CD0BD62336289D00269851 /* RegExp+Helper.swift in Sources */,
 				F1D81D2B22D74CC6008F842A /* RegExpMatch.swift in Sources */,
 				F1D81D2622D74CC6008F842A /* StringMatching+Assert.swift in Sources */,
 				F1D81D2822D74CC6008F842A /* RegExpParser.swift in Sources */,

@@ -42,13 +42,13 @@ public class RegExp {
     */
    public static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [NSTextCheckingResult] {
       do {
-         let regex = try NSRegularExpression(pattern: pattern, options: options)
-         let nsString = text as NSString
-         let results = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
+         let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: options)
+         let nsString: NSString = text as NSString
+         let results: [NSTextCheckingResult] = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
          return results
       } catch let error as NSError {
          print("invalid regex: \(error.localizedDescription)")
-         return []
+         return [] // - Fixme: ⚠️️ return nil here
       }
    }
 }

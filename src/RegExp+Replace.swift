@@ -18,13 +18,14 @@ extension RegExp {
     */
    public static func replace(_ str: String, pattern: String, replacement: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> String {
       do {
-         let stringlength = str.count
-         let regex = try NSRegularExpression(pattern: pattern, options: options)
-         let modString = regex.stringByReplacingMatches(in: str, options: [], range: NSMakeRange(0, stringlength), withTemplate: replacement)
+         let stringlength: Int = str.count
+         let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: options)
+         let range: NSRange = NSMakeRange(0, stringlength)
+         let modString: String = regex.stringByReplacingMatches(in: str, options: [], range: range, withTemplate: replacement)
          return modString
       } catch let error as NSError {
          print("invalid regex: \(error.localizedDescription)")
-         return ""
+         return "" // fixme ⚠️️ return nil
       }
    }
    /**

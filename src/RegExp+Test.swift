@@ -1,11 +1,3 @@
-//
-//  RegExp+Test.swift
-//  RegExSugar
-//
-//  Created by Eon on 21/09/2019.
-//  Copyright © 2019 FutureLab. All rights reserved.
-//
-
 import Foundation
 
 extension RegExp {

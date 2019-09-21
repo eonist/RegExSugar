@@ -53,12 +53,12 @@ extension RegExp {
     * Loops over every string-segment that match the pattern and replaces with a closure (uses Range in the closure)
     * - Parameter replace: (Range)
     * ## Examples:
-    * let "".replace("") {
+    * let "".replace(str: "") {
     *    let match: String = .init(str[$0])
     *    return match
     * }
     */
-   public func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
+   public func replace(str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
       var str = str
       RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
          let range: NSRange = nsCheckingResult.range(at: 1) // The first result is the entire match, I think

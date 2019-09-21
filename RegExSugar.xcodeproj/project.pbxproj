@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F163AF0923366428003F10D9 /* UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163AF0823366428003F10D9 /* UnitTest.swift */; };
+		F163AF0B23366428003F10D9 /* RegExSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D81C5522D5FAEC008F842A /* RegExSugar.framework */; };
 		F1CD0BC52336222D00269851 /* RegExp+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BC42336222D00269851 /* RegExp+Type.swift */; };
 		F1CD0BC72336223900269851 /* RegExp+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BC62336223900269851 /* RegExp+Helper.swift */; };
 		F1CD0BCB233622FE00269851 /* RegExp+Exec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD0BCA233622FE00269851 /* RegExp+Exec.swift */; };
@@ -41,7 +43,20 @@
 		F1D81D2C22D74CC6008F842A /* RegExpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D81C6722D5FBF4008F842A /* RegExpModifier.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F163AF0C23366428003F10D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1D81C4C22D5FAEC008F842A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1D81C5422D5FAEC008F842A;
+			remoteInfo = RegExSugar;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F163AF0623366427003F10D9 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F163AF0823366428003F10D9 /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
+		F163AF0A23366428003F10D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1CD0BC42336222D00269851 /* RegExp+Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegExp+Type.swift"; sourceTree = "<group>"; };
 		F1CD0BC62336223900269851 /* RegExp+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegExp+Helper.swift"; sourceTree = "<group>"; };
 		F1CD0BCA233622FE00269851 /* RegExp+Exec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegExp+Exec.swift"; sourceTree = "<group>"; };
@@ -66,6 +81,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F163AF0323366427003F10D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F163AF0B23366428003F10D9 /* RegExSugar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1D81C5222D5FAEC008F842A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,12 +128,22 @@
 			path = extra;
 			sourceTree = "<group>";
 		};
+		F163AF0723366428003F10D9 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				F163AF0823366428003F10D9 /* UnitTest.swift */,
+				F163AF0A23366428003F10D9 /* Info.plist */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
 		F1D81C4B22D5FAEC008F842A = {
 			isa = PBXGroup;
 			children = (
 				F1D81C6022D5FBF4008F842A /* src */,
 				F1D81C5722D5FAEC008F842A /* RegExSugar */,
 				F1D81D1A22D74A9A008F842A /* RegExSugarMacOS */,
+				F163AF0723366428003F10D9 /* UnitTest */,
 				F1D81C5622D5FAEC008F842A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,6 +153,7 @@
 			children = (
 				F1D81C5522D5FAEC008F842A /* RegExSugar.framework */,
 				F1D81D1922D74A9A008F842A /* RegExSugarMacOS.framework */,
+				F163AF0623366427003F10D9 /* UnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +222,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		F163AF0523366427003F10D9 /* UnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F163AF1023366428003F10D9 /* Build configuration list for PBXNativeTarget "UnitTest" */;
+			buildPhases = (
+				F163AF0223366427003F10D9 /* Sources */,
+				F163AF0323366427003F10D9 /* Frameworks */,
+				F163AF0423366427003F10D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F163AF0D23366428003F10D9 /* PBXTargetDependency */,
+			);
+			name = UnitTest;
+			productName = UnitTest;
+			productReference = F163AF0623366427003F10D9 /* UnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F1D81C5422D5FAEC008F842A /* RegExSugar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1D81C5D22D5FAEC008F842A /* Build configuration list for PBXNativeTarget "RegExSugar" */;
@@ -232,9 +284,13 @@
 		F1D81C4C22D5FAEC008F842A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = FutureLab;
 				TargetAttributes = {
+					F163AF0523366427003F10D9 = {
+						CreatedOnToolsVersion = 10.2;
+					};
 					F1D81C5422D5FAEC008F842A = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -257,11 +313,19 @@
 			targets = (
 				F1D81C5422D5FAEC008F842A /* RegExSugar */,
 				F1D81D1822D74A9A008F842A /* RegExSugarMacOS */,
+				F163AF0523366427003F10D9 /* UnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F163AF0423366427003F10D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1D81C5322D5FAEC008F842A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,6 +380,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F163AF0223366427003F10D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F163AF0923366428003F10D9 /* UnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1D81C5122D5FAEC008F842A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,7 +434,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F163AF0D23366428003F10D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1D81C5422D5FAEC008F842A /* RegExSugar */;
+			targetProxy = F163AF0C23366428003F10D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F163AF0E23366428003F10D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.futurelab.UnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F163AF0F23366428003F10D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.futurelab.UnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F1D81C5B22D5FAEC008F842A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -590,6 +704,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F163AF1023366428003F10D9 /* Build configuration list for PBXNativeTarget "UnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F163AF0E23366428003F10D9 /* Debug */,
+				F163AF0F23366428003F10D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1D81C4F22D5FAEC008F842A /* Build configuration list for PBXProject "RegExSugar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

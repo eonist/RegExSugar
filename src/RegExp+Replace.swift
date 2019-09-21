@@ -42,7 +42,7 @@ extension RegExp {
       var str = str
       RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
          let range: NSRange = nsCheckingResult.range(at: 1) // The first result is the entire match and 1 is the actual precice match, I think
-         let stringRange: Range = str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
+         let stringRange: Range<String.Index> = RegExp.stringRange(str: str, range: range)
          let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
          guard let replacment: String = replacer(match) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
          str.replaceSubrange(stringRange, with: replacment)
@@ -53,18 +53,25 @@ extension RegExp {
     * Loops over every string-segment that match the pattern and replaces with a closure (uses Range in the closure)
     * - Parameter replace: (Range)
     * ## Examples:
-    * let "".replace(str: "") {
-    *    let match: String = .init(str[$0])
-    *    return match
+    * let theResult: String = "".replace(pattern:"") { result in
+    *    let beginning = result.stringRange(str, key: 1) // Capturing group 1
+    *    let middle = result.stringRange(str, key: 2) // Capturing group 2
+    *    let end = result.stringRange(str, key: 3) // Capturing group 3
+    *    let newMiddleStr: String = {
+    *         let middleStr: String = .init(str[middle])
+    *         let pattern = "$(\\*)"
+    *         return middleStr.replace(pattern) { "///" }
+    *    }()
+    *    return [(begining, "///"), (middle, newMiddleStr), (end, "///")]
     * }
     */
    public static func replace(str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
       var str = str
       RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
-         let range: NSRange = nsCheckingResult.range(at: 1) // The first result is the entire match, I think
-         let stringRange: Range<String.Index> = str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
-         guard let replacment: String = replace(stringRange) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
-         str.replaceSubrange(stringRange, with: replacment)
+         guard let replacementResult: ReplacmentResult = replace(nsCheckingResult) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
+         replacementResult.reversed().forEach {
+            str.replaceSubrange($0.range, with: $0.replacement)
+         }
       }
       return str
    }

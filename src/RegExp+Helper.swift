@@ -22,6 +22,20 @@ extension RegExp {
       guard let range = input.range(of: pattern, options: .regularExpression) else { return nil }
       return input.distance(from: input.startIndex, to: range.lowerBound)
    }
+   /**
+    * Converts NSRange -> Range<String.Index>
+    */
+   public static func stringRange(str: String, range: NSRange) -> Range<String.Index> {
+      return str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
+   }
+   /**
+    * Converts NSRange -> String
+    */
+   public static func string(str: String, range: NSRange) -> String {
+      let stringRange: Range<String.Index> = RegExp.stringRange(str: str, range: range)
+      let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
+      return match
+   }
 }
 /**
  * NSTextCheckingResult
@@ -32,5 +46,12 @@ extension NSTextCheckingResult {
     */
    public func value(_ str: String, key: Int) -> String { // Convenience
       return RegExp.value(str, result: self, key: key)
+   }
+   /**
+    * stringRange for string and checkingResult
+    */
+   public func stringRange(_ str: String, key: Int) -> Range<String.Index> {
+      let range: NSRange = self.range(at: key) // Capturing group
+      return RegExp.stringRange(str: str, range: range)
    }
 }

@@ -45,7 +45,7 @@ public class RegExp {
       do {
          let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: options)
          let nsString: NSString = text as NSString
-         let results: [NSTextCheckingResult] = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
+         let results: [NSTextCheckingResult] = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length)) // fixme: ⚠️️ use something else than NSMakeRange
          return results
       } catch let error as NSError {
          print("invalid regex: \(error.localizedDescription)")

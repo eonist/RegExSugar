@@ -1,0 +1,23 @@
+//
+//  RegExp+Test.swift
+//  RegExSugar
+//
+//  Created by Eon on 21/09/2019.
+//  Copyright © 2019 FutureLab. All rights reserved.
+//
+
+import Foundation
+
+extension RegExp {
+   /**
+    * Asserts if a match exists
+    * - Note: NSRegularExpression. https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSRegularExpression_Class/index.html
+    * - NOTE: for simple implimentations:  str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
+    * - ## Examples:
+    * RegExp.test("hello world","o.*o")//true
+    * - Caution: upgraded in swift 3, was-> str.rangeOfString(pattern, options: .RegularExpressionSearch) != nil
+    */
+   public static func test(_ str: String, pattern: String) -> Bool {
+      return str.range(of: pattern, options: .regularExpression) != nil//or do something like this: return RegExpParser.match(pattern,options).count > 0
+   }
+}

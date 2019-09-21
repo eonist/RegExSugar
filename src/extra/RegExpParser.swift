@@ -188,7 +188,7 @@ public class RegExpParser {
    /**
     * Retuns an array comprised of objects containing a name and a value from PARAM input
     * - Parameter input a string containing css properties
-    * ## EXAMPLES
+    * ## Examples:
     * cssProoperties("color:blue;thickness:2;font:Helvetica;");//[{name:color,value:blue},{name:thickness,value:2},{name:font,value:helvetica}]
     */
    static func cssProperties(_ input: String) -> [(name: String, value: String)] {

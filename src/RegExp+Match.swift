@@ -19,10 +19,11 @@ public class RegExp {
     * - Fixme: Then if it is outof bound return eigther an empty array or nil
     * - Fixme: Then only do substringwithrange if NSRange is not NSOutOfBoundRange type
     */
-   public static func match(_ text: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [String] {
+   public static func match(_ text: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive) -> [String] {
       return matches(text, pattern: pattern).map { (text as NSString).substring(with: $0.range) }
    }
    /**
+    * loops over every string-segment that match the pattern
     * - Note: Similar to Exec in other languages
     * - Note: NSRegExp uses the ICU regexp syntax: http://userguide.icu-project.org/strings/regexp
     * - Note: Use this method when doing named capturing group or location of matches
@@ -40,7 +41,7 @@ public class RegExp {
     *     let value = $0.value(str, 2)/*capturing group 2*/
     * } // Outputs: name: green, value: 00FF00...and so on
     */
-   public static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive) -> [NSTextCheckingResult] {
+   public static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = .caseInsensitive) -> [NSTextCheckingResult] {
       do {
          let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: options)
          let nsString: NSString = text as NSString

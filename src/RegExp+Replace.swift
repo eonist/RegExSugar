@@ -29,23 +29,42 @@ extension RegExp {
       }
    }
    /**
-    * Replaces with a closure
+    * Loops over every string-segment that match the pattern and replaces with a closure (uses String in the closure)
     * - Fixme: ⚠️️ Try to performance test if accumulative substring is faster (you += before the match + the match and so on)
+    * - Parameter replacer: (String)
     * ## Examples:
     * let str: String = "bad wolf, bad dog, Bad sheep"
     * let pattern: String = "\\b([bB]ad)\\b"
     * let result: String = str.replace(pattern) { $0.isLowerCased ? $0 : $0.lowercased() } // converts all "Bad" words to lowercase
     * Swift.print(result) // bad wolf, bad dog, bad sheep
     */
-   public static func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive, replacer: Replacer) -> String {
+   public static func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replacer: Replacer) -> String {
+      var str = str
+      RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
+         let range: NSRange = nsCheckingResult.range(at: 1) // The first result is the entire match and 1 is the actual precice match, I think
+         let stringRange: Range = str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
+         let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
+         guard let replacment: String = replacer(match) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
+         str.replaceSubrange(stringRange, with: replacment)
+      }
+      return str
+   }
+   /**
+    * Loops over every string-segment that match the pattern and replaces with a closure (uses Range in the closure)
+    * - Parameter replace: (Range)
+    * ## Examples:
+    * let "".replace("") {
+    *    let match: String = .init(str[$0])
+    *    return match
+    * }
+    */
+   public func replace(_ str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
       var str = str
       RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
          let range: NSRange = nsCheckingResult.range(at: 1) // The first result is the entire match, I think
-         let stringRange: Range = str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
-         let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
-         if let replacment: String = replacer(match) {
-            str.replaceSubrange(stringRange, with: replacment)
-         }// Fixme: ⚠️️ return nil here
+         let stringRange: Range<String.Index> = str.index(str.startIndex, offsetBy: range.location)..<str.index(str.endIndex, offsetBy: range.length)
+         guard let replacment: String = replace(stringRange) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
+         str.replaceSubrange(stringRange, with: replacment)
       }
       return str
    }

@@ -26,7 +26,7 @@ extension RegExp {
     * Converts NSRange -> Range<String.Index>
     */
    public static func stringRange(str: String, range: NSRange) -> Range<String.Index> { // (str.startIndex, offsetBy: range.location + range.length)
-      let start: String.Index = str.index(str.startIndex, offsetBy: range.location)
+      let start: String.Index = str.index(str.startIndex, offsetBy: range.location, limitedBy: str.endIndex) ?? str.endIndex
       let end: String.Index = str.index(str.startIndex, offsetBy: range.location + range.length, limitedBy: str.endIndex) ?? str.endIndex
       return start..<end
    }

@@ -61,13 +61,14 @@ extension NSTextCheckingResult {
    /**
     * Returns range and string
     */
-   public func rangeAndString(_ str: String, key: Int) -> RegExp.MatcherResult {
-      let stringRange: Range<String.Index> = self.stringRange(str, key: key)
-      let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
-      return (range: stringRange, match: match)
-   }
+//   public func rangeAndString(_ str: String, key: Int) -> RegExp.MatcherResult {
+//      let stringRange: Range<String.Index> = self.stringRange(str, key: key)
+//      let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
+//      return (range: stringRange, match: match)
+//   }
    /**
     * Returns range and string
+    * - Note: ⚠️️ We use NSRange because it works better with emojies in regex (Ref: google emoji regex swift)
     */
    public func nsRangeAndString(_ str: String, key: Int) -> RegExp.MatchResult {
       //let stringRange: Range<String.Index> = self.stringRange(str, key: key)

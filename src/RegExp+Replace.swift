@@ -53,17 +53,19 @@ extension RegExp {
     * Loops over every string-segment that match the pattern and replaces with a closure (uses Range in the closure)
     * - Parameter replace: (Range)
     * ## Examples:
-    * let theResult: String = "".replace(pattern:"") { result in
-    *    let beginning = result.stringRange(str, key: 1) // Capturing group 1
-    *    let middle = result.stringRange(str, key: 2) // Capturing group 2
-    *    let end = result.stringRange(str, key: 3) // Capturing group 3
-    *    let newMiddleStr: String = {
-    *         let middleStr: String = .init(str[middle])
-    *         let pattern = "$(\\*)"
-    *         return middleStr.replace(pattern) { "///" }
+    * let string = "blue:0000FF green:00FF00 red:FF0000"
+    * let ptrn: String = "(\\w+?)\\:([A-Z0-9]+?)(?: |$)"
+    * let theResult: String = string.replace(pattern: ptrn) { result in
+    *    let beginning = result.stringRange(string, key: 1) // Capturing group 1
+    *    let newBegginingStr: String = { // Manipulate the string a bit
+    *       let theStr: String = .init(string[beginning])
+    *       return theStr.uppercased()
     *    }()
-    *    return [(begining, "///"), (middle, newMiddleStr), (end, "///")]
+    *    let end = result.stringRange(string, key: 2) // Capturing group 2
+    *    let newEndStr: String = .init(string[end]) // Keep the same string
+    *    return [(beginning, newBegginingStr), (end, newEndStr)]
     * }
+    * Swift.print("theResult:  \(theResult)") // BLUE:0000FF GREEN:00FF00 RED:FF0000
     */
    public static func replace(str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
       var str = str
@@ -76,3 +78,4 @@ extension RegExp {
       return str
    }
 }
+

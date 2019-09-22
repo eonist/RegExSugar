@@ -18,6 +18,12 @@ extension String {
    public func replace(_ pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replacer: RegExp.Replacer) -> String {
       return RegExp.replace(self, pattern: pattern, options: options, replacer: replacer)
    }
+   /**
+    * Works better with capturing groups
+    */
+   public func replace(pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: RegExp.Replace) -> String {
+      return RegExp.replace(str: self, pattern: pattern, options: options, replace: replace)
+   }
    public func search(_ pattern: String) -> Int? {
       return RegExp.search(self, pattern: pattern)
    }

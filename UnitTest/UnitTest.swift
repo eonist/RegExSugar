@@ -13,9 +13,9 @@ class UnitTest: XCTestCase {
       testReplace()
       testMatches()
    }
-   func testPerformanceExample() {
-//      self.measure { }
-   }
+//   func testPerformanceExample() {
+////      self.measure { }
+//   }
 }
 extension UnitTest {
    /**

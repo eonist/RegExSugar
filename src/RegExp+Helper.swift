@@ -25,8 +25,10 @@ extension RegExp {
    /**
     * Converts NSRange -> Range<String.Index>
     */
-   public static func stringRange(str: String, range: NSRange) -> Range<String.Index> {
-      return str.index(str.startIndex, offsetBy: range.location)..<str.index(str.startIndex, offsetBy: range.location + range.length)
+   public static func stringRange(str: String, range: NSRange) -> Range<String.Index> { // (str.startIndex, offsetBy: range.location + range.length)
+      let start: String.Index = str.index(str.startIndex, offsetBy: range.location)
+      let end: String.Index = str.index(str.startIndex, offsetBy: range.location + range.length, limitedBy: str.endIndex) ?? str.endIndex
+      return start..<end
    }
    /**
     * Converts NSRange -> String

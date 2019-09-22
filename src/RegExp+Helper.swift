@@ -70,7 +70,7 @@ extension NSTextCheckingResult {
     * Returns range and string
     */
    public func nsRangeAndString(_ str: String, key: Int) -> RegExp.MatchResult {
-      //      let stringRange: Range<String.Index> = self.stringRange(str, key: key)
+      //let stringRange: Range<String.Index> = self.stringRange(str, key: key)
       let range = self.range(at: key)
       let match: String = RegExp.string(str: str, range: range)//.init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
       return (range: range, match: match)

@@ -74,7 +74,10 @@ extension RegExp {
       RegExp.matches(str, pattern: pattern).reversed().forEach { nsCheckingResult in
          guard let replacementResult: ReplacmentResult = replace(nsCheckingResult) else { Swift.print("RegExp.replace() ⚠️️ something wrong ⚠️️ "); return }
          replacementResult.reversed().forEach {
-            str.replaceSubrange($0.range, with: $0.replacement)
+            let nsStr: NSString = str as NSString
+//            nsStr.subr
+            str = nsStr.replacingCharacters(in: $0.range, with: $0.replacement)
+//            str.replaceSubrange($0.range, with: $0.replacement)
          }
       }
       return str

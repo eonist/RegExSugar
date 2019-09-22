@@ -41,7 +41,7 @@ public class RegExp {
     *     let value = $0.value(str, 2)/*capturing group 2*/
     * } // Outputs: name: green, value: 00FF00...and so on
     */
-   public static func matches(_ text: String!, pattern: String!, options: NSRegularExpression.Options = .caseInsensitive) -> [NSTextCheckingResult] {
+   public static func matches(_ text: String!, pattern: String, options: NSRegularExpression.Options = .caseInsensitive) -> [NSTextCheckingResult] {
       do {
          let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: options)
          let nsString: NSString = text as NSString
@@ -52,4 +52,25 @@ public class RegExp {
          return [] // - Fixme: ⚠️️ return nil here
       }
    }
+   /**
+    * - Fixme: ⚠️️ Maybe add generics to the matcher closure somehow?
+    * ## Examples:
+    * let str = "blue:0000FF green:00FF00 red:FF0000"
+    * let pattern = "(\\w+?)\\:([A-Z0-9]+?)(?: |$)"
+    * let matches: [String] = str.matches(pattern: pattern) { $0.value(str, key: 2) } // 0000FF, 00FF00, FF0000
+    * let ranges: [Range<String.Index>] = str.matches(pattern) { $0.stringRange(string, key: 2) } // (4,16), (19,21), (23,30) etc
+    */
+   public static func matches<T>(str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, matcher: (_ result: NSTextCheckingResult) -> T) -> [T] {
+      return RegExp.matches(str, pattern: pattern).map { matcher($0) }
+   }
 }
+
+//func runThis<T>(first:T, _ closure: (T) -> T)->T {
+//   return closure(first)
+//}
+//
+//func someMethod<T>(someVar:T)->T {
+//   return someVar
+//}
+//
+//runThis("works",someMethod)//works

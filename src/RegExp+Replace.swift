@@ -66,6 +66,8 @@ extension RegExp {
     *    return [(beginning, newBegginingStr), (end, newEndStr)]
     * }
     * Swift.print("theResult:  \(theResult)") // BLUE:0000FF GREEN:00FF00 RED:FF0000
+    * - Fixme: ⚠️️ You dont need the array to be optional, empty array works fine
+    * - Fixme: this mthod uses reversed() twice, i guess it makes sense?
     */
    public static func replace(str: String, pattern: String, options: NSRegularExpression.Options = .caseInsensitive, replace: Replace) -> String {
       var str = str
@@ -78,4 +80,3 @@ extension RegExp {
       return str
    }
 }
-

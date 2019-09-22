@@ -33,8 +33,7 @@ extension RegExp {
     */
    public static func string(str: String, range: NSRange) -> String {
       let stringRange: Range<String.Index> = RegExp.stringRange(str: str, range: range)
-      let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
-      return match
+      return .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
    }
 }
 /**
@@ -53,5 +52,13 @@ extension NSTextCheckingResult {
    public func stringRange(_ str: String, key: Int) -> Range<String.Index> {
       let range: NSRange = self.range(at: key) // Capturing group
       return RegExp.stringRange(str: str, range: range)
+   }
+   /**
+    * Returns range and string
+    */
+   public func rangeAndString(_ str: String, key: Int) -> RegExp.MatcherResult {
+      let stringRange: Range<String.Index> = self.stringRange(str, key: key)
+      let match: String = .init(str[stringRange]) // Fixme: ⚠️️ Might want to assert if the range exists in the array?
+      return (range: stringRange, match: match)
    }
 }

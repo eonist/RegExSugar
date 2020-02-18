@@ -53,7 +53,6 @@ public class RegExp {
       }
    }
    /**
-    * - Fixme: ⚠️️ Maybe add generics to the matcher closure somehow?
     * ## Examples:
     * let str = "blue:0000FF green:00FF00 red:FF0000"
     * let pattern = "(\\w+?)\\:([A-Z0-9]+?)(?: |$)"

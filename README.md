@@ -1,5 +1,10 @@
-
-![platform](https://img.shields.io/badge/Platform-iOS-blue.svg) ![platform](https://img.shields.io/badge/Platform-macOS-blue.svg) ![Lang](https://img.shields.io/badge/Language-Swift%205.0-orange.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![codebeat badge](https://codebeat.co/badges/e906a5bb-cd61-468a-a8a8-fbca9723cdd5)](https://codebeat.co/projects/github-com-eonist-regexsugar-master) [![Build Status](https://travis-ci.com/eonist/RegExSugar.svg?branch=master)](https://travis-ci.com/eonist/RegExSugar)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+![platform](https://img.shields.io/badge/Platform-iOS-blue.svg)
+![platform](https://img.shields.io/badge/Platform-macOS-blue.svg)
+![Lang](https://img.shields.io/badge/Language-Swift%205.0-orange.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![codebeat badge](https://codebeat.co/badges/e906a5bb-cd61-468a-a8a8-fbca9723cdd5)](https://codebeat.co/projects/github-com-eonist-regexsugar-master)
+[![Build Status](https://travis-ci.com/eonist/RegExSugar.svg?branch=master)](https://travis-ci.com/eonist/RegExSugar)
 
 # RegExSugar
 
